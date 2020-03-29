@@ -9,7 +9,7 @@ const INGREDIENT_PRICES = {
     cheese: 0.4,
     meat: 1.3,
     bacon: 0.7
-}
+};
 
 class BurgerBuilder extends Component {
 
@@ -23,7 +23,7 @@ class BurgerBuilder extends Component {
         totalPrice: 0,
         purchasable: false,
         purchasing: false
-    }
+    };
 
     purchaseHandler = () => {
         this.setState({purchasing: true})
@@ -31,6 +31,10 @@ class BurgerBuilder extends Component {
 
     purchaseCancelHandler = () => {
       this.setState({purchasing: false})
+    };
+
+    purchaseContinueHandler = () => {
+        alert('You continue!')
     };
 
     updatePurchaseState = (ingredients) => {
@@ -89,9 +93,12 @@ class BurgerBuilder extends Component {
 
         return (
             <React.Fragment>
-                <Modal show ={this.state.purchasing}
-                        modalClosed = {this.purchaseCancelHandler}>
-                    <OrderSummary ingredients = {this.state.ingredients} />
+                <Modal show = {this.state.purchasing}
+                       modalClosed = {this.purchaseCancelHandler}>
+                    <OrderSummary ingredients = {this.state.ingredients}
+                                  purchaseCancelled={this.purchaseCancelHandler}
+                                  purchaseContinued={this.purchaseContinueHandler}
+                                  price={this.state.totalPrice}  />
                 </Modal>
                 <Burger ingredients = {this.state.ingredients}/>
                 <BuildControls 
