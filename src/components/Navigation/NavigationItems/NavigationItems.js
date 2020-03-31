@@ -10,7 +10,7 @@ const navigationItems = () => (
             active = {true}>BurgerBuilder</NavigationItem>
         <NavigationItem
             link = "/"
-            active = {true}>Checkout</NavigationItem>
+            active = {false}>Checkout</NavigationItem>
     </ul>
 );
 

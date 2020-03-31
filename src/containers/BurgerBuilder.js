@@ -92,7 +92,7 @@ class BurgerBuilder extends Component {
         }
 
         return (
-            <React.Fragment>
+            <>
                 <Modal show = {this.state.purchasing}
                        modalClosed = {this.purchaseCancelHandler}>
                     <OrderSummary ingredients = {this.state.ingredients}
@@ -109,7 +109,7 @@ class BurgerBuilder extends Component {
                     price = {this.state.totalPrice}
                     ordered = {this.purchaseHandler}/>
 
-            </React.Fragment>
+            </>
         );
     }
 }
